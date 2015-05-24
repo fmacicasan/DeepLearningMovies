@@ -3,3 +3,5 @@ data
 data/*
 .idea
 *.pyc
+*.csv
+*features_*

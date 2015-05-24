@@ -144,7 +144,7 @@ if __name__ == '__main__':
 
     # It can be helpful to create a meaningful model name and
     # save the model for later use. You can load it later using Word2Vec.load()
-    model_name = "300features_40minwords_10context"
+    model_name = "data/300features_40minwords_10context"
     model.save(model_name)
 
     model.doesnt_match("man woman child kitchen".split())
@@ -180,5 +180,6 @@ if __name__ == '__main__':
 
     # Write the test results
     output = pd.DataFrame( data={"id":test["id"], "sentiment":result} )
-    output.to_csv( "Word2Vec_AverageVectors.csv", index=False, quoting=3 )
+    save_path = os.path.join(os.path.dirname(__file__), 'data', "Word2Vec_AverageVectors.csv")
+    output.to_csv(save_path, index=False, quoting=3)
     print "Wrote Word2Vec_AverageVectors.csv"
